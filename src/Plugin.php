@@ -1,6 +1,6 @@
 <?php
 
-namespace WPcomSpecialProjects\Scaffold;
+namespace WPcomSpecialProjects\RevisionHistoryForWooCommerce;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -12,16 +12,6 @@ defined( 'ABSPATH' ) || exit;
  */
 class Plugin {
 	// region FIELDS AND CONSTANTS
-
-	/**
-	 * The blocks component.
-	 *
-	 * @since   1.0.0
-	 * @version 1.0.0
-	 *
-	 * @var     Blocks|null
-	 */
-	public ?Blocks $blocks = null;
 
 	/**
 	 * The integrations component.
@@ -112,7 +102,7 @@ class Plugin {
 
 		// Get the minimum WooCommerce version required from the plugin's header, if needed.
 		if ( null === $minimum_wc_version ) {
-			$updated_plugin_metadata = \get_plugin_data( \trailingslashit( WP_PLUGIN_DIR ) . WPCOMSP_SCAFFOLD_BASENAME, false, false );
+			$updated_plugin_metadata = \get_plugin_data( \trailingslashit( WP_PLUGIN_DIR ) . RHFW_BASENAME, false, false );
 			if ( ! \array_key_exists( \WC_Plugin_Updates::VERSION_REQUIRED_HEADER, $updated_plugin_metadata ) ) {
 				return false;
 			}
@@ -127,7 +117,7 @@ class Plugin {
 		}
 
 		// Custom requirements check out, just ensure basic requirements are met.
-		return true === WPCOMSP_SCAFFOLD_REQUIREMENTS;
+		return true === RHFW_REQUIREMENTS;
 	}
 
 	/**
@@ -139,9 +129,6 @@ class Plugin {
 	 * @return  void
 	 */
 	protected function initialize(): void {
-		$this->blocks = new Blocks();
-		$this->blocks->initialize();
-
 		$this->integrations = new Integrations();
 		$this->integrations->initialize();
 	}
@@ -165,12 +152,12 @@ class Plugin {
 				static function() use ( $minimum_wc_version ) {
 					$message = \wp_sprintf(
 						/* translators: 1. Plugin version, 2. Minimum WC version. */
-						__( '<strong>%1$s (v%2$s)</strong> requires WooCommerce %3$s or newer. Please install, update, and/or activate WooCommerce!', 'wpcomsp-scaffold' ),
-						WPCOMSP_SCAFFOLD_METADATA['Name'],
-						WPCOMSP_SCAFFOLD_METADATA['Version'],
+						__( '<strong>%1$s (v%2$s)</strong> requires WooCommerce %3$s or newer. Please install, update, and/or activate WooCommerce!', 'rhfw' ),
+						RHFW_METADATA['Name'],
+						RHFW_METADATA['Version'],
 						$minimum_wc_version
 					);
-					$html_message = \wp_sprintf( '<div class="error notice wpcomsp-scaffold-error">%s</div>', wpautop( $message ) );
+					$html_message = \wp_sprintf( '<div class="error notice rhfw-error">%s</div>', wpautop( $message ) );
 					echo \wp_kses_post( $html_message );
 				}
 			);
