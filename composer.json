@@ -48,7 +48,7 @@
 
   "autoload": {
     "psr-4": {
-      "WPcomSpecialProjects\\RevisionHistoryForWooCommerce\\": "src/"
+      "WPCOMSpecialProjects\\RevisionHistoryForWooCommerce\\": "src/"
     }
   },
   "autoload-dev": {
@@ -67,7 +67,7 @@
       "@makejson"
     ],
     "makepot": "wp i18n make-pot .",
-    "updatepo": "wp i18n update-po ./languages/rhfw.pot",
+    "updatepo": "wp i18n update-po ./languages/wpcomsp-rhfw.pot",
     "makejson": "wp i18n make-json ./languages --pretty-print --no-purge",
     "makemo": "wp i18n make-mo ./languages",
 

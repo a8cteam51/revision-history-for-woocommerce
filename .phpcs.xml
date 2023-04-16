@@ -9,7 +9,7 @@
 	<rule ref="WordPress.WP.I18n">
 		<properties>
 			<property name="text_domain" type="array">
-				<element value="rhfw"/>
+				<element value="wpcomsp-rhfw"/>
 			</property>
 		</properties>
 	</rule>
@@ -18,8 +18,9 @@
 	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
 		<properties>
 			<property name="prefixes" type="array">
-				<element value="rhfw_"/>
-				<element value="WPcomSpecialProjects"/>
+				<element value="wpcomsp_"/>
+				<element value="wpcomsp_rhfw_"/>
+				<element value="WPCOMSpecialProjects\RevisionHistoryForWooCommerce"/>
 			</property>
 		</properties>
 	</rule>

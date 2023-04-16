@@ -1,6 +1,6 @@
 <?php
 
-namespace WPcomSpecialProjects\RevisionHistoryForWooCommerce\Integrations;
+namespace WPCOMSpecialProjects\RevisionHistoryForWooCommerce\Integrations;
 
 defined( 'ABSPATH' ) || exit;
 

@@ -2,7 +2,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-use WPcomSpecialProjects\RevisionHistoryForWooCommerce\Plugin;
+use WPCOMSpecialProjects\RevisionHistoryForWooCommerce\Plugin;
 
 // region
 
@@ -27,7 +27,7 @@ function rhfw_get_plugin_instance(): Plugin {
  * @return  string
  */
 function rhfw_get_plugin_slug(): string {
-	return sanitize_key( RHFW_METADATA['TextDomain'] );
+	return sanitize_key( WPCOMSP_RHFW_METADATA['TextDomain'] );
 }
 
 // endregion
